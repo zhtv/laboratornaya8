@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML5 canvas rectangle</title> 
+<script>
+ function draw() {
+ var canvas = document.getElementById('myCanvas');
+ var ctx = canvas.getContext('2d');
+ ctx.beginPath();
+    ctx.fillStyle = "brown";
+    ctx.fillRect(0, 0, 100, 100);
+
+ ctx.beginPath();
+    ctx.fillStyle = "black";
+    ctx.font = "16px sans-serif";
+    ctx.fillText("Янковская", 13, 55);
+
+ } 
+</script>
+</head>
+ 
+<body onload="draw();">
+ <canvas id="myCanvas" width="250" height="150">
+ </canvas>
+</body>
+</html>

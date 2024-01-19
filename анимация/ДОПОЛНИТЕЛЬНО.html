@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДОМИК В ЛЕСУ И НОЧЬ НАСТУПИЛА!!!!!!!!!</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Функция для рисования сцены
+            function drawScene() {
+                // Рисуем фон
+                ctx.fillStyle = day ? '#87CEEB' : '#000033';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Рисуем домик
+                ctx.fillStyle = "FireBrick";
+                ctx.fillRect(100, 250, 200, 200);
+                ctx.fillStyle = "Maroon";
+                ctx.beginPath();
+                ctx.moveTo(100, 250);
+                ctx.lineTo(300, 250);
+                ctx.lineTo(200, 150);
+                ctx.fill();
+
+                // Рисуем окно
+                ctx.fillStyle = "DodgerBlue";
+                ctx.fillRect(150, 300, 50, 50);
+
+                // Рисуем дерево
+                ctx.fillStyle = "SaddleBrown";
+                ctx.fillRect(450, 300, 50, 150);
+                ctx.fillStyle = "green";
+                ctx.beginPath();
+                ctx.moveTo(475, 10);
+                ctx.lineTo(400, 350);
+                ctx.lineTo(550, 350);
+                ctx.fill();
+
+                ctx.fillStyle = "SaddleBrown";
+                ctx.fillRect(650, 300, 50, 150);
+                ctx.fillStyle = "green";
+                ctx.beginPath();
+                ctx.moveTo(675, 10);
+                ctx.lineTo(600, 350);
+                ctx.lineTo(750, 350);
+                ctx.fill();
+
+                // Рисуем солнце или луну
+                ctx.beginPath();
+                ctx.arc(50, 50, 40, 0, Math.PI * 2);
+                ctx.fillStyle = day ? '#FFD700' : '#808080';
+                ctx.fill();
+            }
+
+            let day = true;
+
+            canvas.addEventListener('click', function() {
+                day = !day;
+                drawScene();
+            });
+
+            // Инициализация сцены
+            drawScene();
+        });
+    </script>
+</body>
+</html>
